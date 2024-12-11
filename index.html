@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        header {
+            background-color: #333333;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444444;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1f1f1f; /* Darker background */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        .section-container {
+            margin-top: 40px;
+        }
+        #schedule {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .schedule-day {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+        .schedule-day label {
+            font-weight: bold;
+            display: block;
+        }
+        input, button, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5a55da;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+        .scroll-to-top:hover {
+            background-color: #5a55da;
+        }
+        #chat-container {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        #chat-output {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #333333;
+            color: #e0e0e0;
+        }
+        #chat-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #2e2e2e;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Study Hub</h1>
+        <p>Your ultimate study companion</p>
+    </header>
+    <nav>
+        <a href="#resources">Resources</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#tips">Study Tips</a>
+        <a href="#contact">Contact</a>
+        <a href="#chat">Ask Alfred</a>
+    </nav>
+    <main>
+        <section id="resources" class="section-container">
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a></li>
+                <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
+                <li><a href="https://www.edx.org" target="_blank">edX</a></li>
+                <li><a href="https://www.quickmath.com" target="_blank">QuickMath</a></li>
+            </ul>
+        </section>
+
+        <section id="schedule" class="section-container">
+            <h2>Weekly Study Schedule</h2>
+            <form id="schedule-form">
+                <div id="schedule">
+                    <div class="schedule-day">
+                        <label for="monday">Monday</label>
+                        <input type="text" id="monday" placeholder="Subject/Activity">
+                    </div>
+                    <div class="schedule-day">
+                        <label for="tuesday">Tuesday</label>
+                        <input type="text" id="tuesday" placeholder="Subject/Activity">
+                    </div>
+                    <div class="schedule-day">
+                        <label for="wednesday">Wednesday</label>
+                        <input type="text" id="wednesday" placeholder="Subject/Activity">
+                    </div>
+                    <div class="schedule-day">
+                        <label for="thursday">Thursday</label>
+                        <input type="text" id="thursday" placeholder="Subject/Activity">
+                    </div>
+                    <div class="schedule-day">
+                        <label for="friday">Friday</label>
+                        <input type="text" id="friday" placeholder="Subject/Activity">
+                    </div>
+                    <div class="schedule-day">
+                        <label for="saturday">Saturday</label>
+                        <input type="text" id="saturday" placeholder="Subject/Activity">
+                    </div>
+                    <div class="schedule-day">
+                        <label for="sunday">Sunday</label>
+                        <input type="text" id="sunday" placeholder="Subject/Activity">
+                    </div>
+                </div>
+                <button type="submit">Save Schedule</button>
+            </form>
+        </section>
+
+        <section id="tips" class="section-container">
+            <h2>Study Tips</h2>
+            <ul>
+                <li>Break your study sessions into manageable chunks.</li>
+                <li>Take regular breaks to stay focused.</li>
+                <li>Practice active recall and self-testing.</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section-container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section id="chat" class="section-container">
+            <h2>Ask Alfred</h2>
+            <div id="chat-container">
+                <div id="chat-output"></div>
+                <textarea id="chat-input" placeholder="Ask me anything about your studies..."></textarea>
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </section>
+
+    </main>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Save weekly schedule
+        document.getElementById('schedule-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const schedule = {
+                monday: document.getElementById('monday').value,
+                tuesday: document.getElementById('tuesday').value,
+                wednesday: document.getElementById('wednesday').value,
+                thursday: document.getElementById('thursday').value,
+                friday: document.getElementById('friday').value,
+                saturday: document.getElementById('saturday').value,
+                sunday: document.getElementById('sunday').value
+            };
+
+            // Save the schedule in localStorage (or send to backend)
+            localStorage.setItem('weeklySchedule', JSON.stringify(schedule));
+
+            alert('Schedule saved successfully!');
+        });
+
+        // Alfred's responses and memory
+        let conversationMemory = [];
+        function generateResponse(message) {
+            const keywords = [
+                { words: ["hello", "hi", "hey"], responses: ["Hello! How can I help you today?", "Hi there! What's on your mind?", "Hey! Ready to dive into studies?"] },
+                { words: ["schedule", "organize"], responses: ["I can help you plan! Tell me your tasks for the day.", "Let's structure your time together."] },
+                { words: ["tips", "advice"], responses: ["Remember to take breaks while studying!", "Focus on understanding, not just memorizing."] },
+                { words: ["thanks", "thank you"], responses: ["You're welcome! Anything else I can assist with?", "Glad I could help. Let me know if there's more!"] }
+            ];
+            
+            for (let keyword of keywords) {
+                if (keyword.words.some(word => message.includes(word))) {
+                    return keyword.responses[Math.floor(Math.random() * keyword.responses.length)];
+                }
+            }
+            return "That's interesting! Could you tell me more about it?";
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const chatOutput = document.getElementById('chat-output');
+            const userMessage = chatInput.value.trim();
+
+            if (!userMessage) return;
+
+            // Display user message
+            conversationMemory.push({ role: "user", content: userMessage });
+            chatOutput.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+
+            // Generate Alfred's response
+            const alfredResponse = generateResponse(userMessage.toLowerCase());
+            conversationMemory.push({ role: "assistant", content: alfredResponse });
+            chatOutput.innerHTML += `<p><strong>Alfred:</strong> ${alfredResponse}</p>`;
+
+            // Scroll to the bottom
+            chatOutput.scrollTop = chatOutput.scrollHeight;
+
+            // Clear input field
+            chatInput.value = '';
+        }
+    </script>
+</body>
+</html>
